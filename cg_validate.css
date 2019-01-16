@@ -4,8 +4,8 @@
    Case Problem 1
 
    ACGIP Registration Validation Style Sheet
-   Author: 
-   Date:   
+   Author: Maria De Jesus Rizo
+   Date:   1.14.19
 
    Filename: cg_validate.css
 
@@ -13,4 +13,29 @@
 
 
 /* Validation Styles */
+/* The selector below states that styles listed the input, select, and textarea elements will be affected when in the state of focus. The focus psuedo class states that the element it is attached to has been clicked by the user and thus makign it an active control. The background color property gives the elements the background color specified by the RGB triplet */
+input:focus,
+select:focus,
+textarea:focus {
+    background-color: rgb(245, 245, 140);
+}
 
+/* The selector below states that all styles listed will affect the input with an id of either fnBox, lnBox, addBox, mailBox, phoneBox, and idBox in the state of focus and valid. The valid psuedo class states that inofrmation that is inputted by the user is valil and has pased validation tests. The background property gives the element a backgroud color as specified and placed the image listed by the url in the bottom right corner of it container, not repeating itself to fill the space.   */
+input#fnBox:focus:valid,
+input#lnBox:focus:valid,
+input#addBox:focus:valid,
+input#mailBox:focus:valid,
+input#phoneBox:focus:valid,
+input#idBox:focus:valid {
+    background: rgb(220, 255, 220) url(cg_valid.png) bottom right/contain no-repeat;
+}
+
+/* The comment from above applied here as well, the only difference being that the invalid psuedo class states that the information has failed the validation test. Along with that a different background color is specified as well as a different image.   */
+input#fnBox:focus:invalid,
+input#lnBox:focus:invalid,
+input#addBox:focus:invalid,
+input#mailBox:focus:invalid,
+input#phoneBox:focus:invalid,
+input#idBox:focus:invalid {
+    background: rgb(255, 232, 232) url(cg_invalid.png) bottom right/contain no-repeat;
+}

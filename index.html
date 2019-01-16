@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Beginning of HTML document -->
 <html lang="en">
 
 <head>
@@ -11,10 +12,10 @@
       Author: Maria De Jesus Rizo
       Date:   1.14.19
 
-      Filename:   cg_register.html
+      Filename:   index.html
 
    -->
-
+    <!-- The link element allows for the stylesheets to applied to the HTML document, styling the page when rendered in the browser. The script element allows for javascript code to be imported from an external document similar to how the link element allows for css styles to be applied to the page.   -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>CGIP Registration Form</title>
@@ -24,6 +25,7 @@
     <link rel="stylesheet" href="cg_validate.css">
     <script src="cg_script.js"></script>
 </head>
+<!-- Beginning of content that will be visible to users on the page when rendered in the browser.  -->
 
 <body>
     <header>
@@ -51,36 +53,63 @@
             <li><a href="#">links</a></li>
         </ul>
     </nav>
+    <!-- Beginnign of form title and content -->
     <section>
         <h1>Conference Registration Form</h1>
         <p>Required Item (*)</p>
 
-
+        <!-- Beginning of form labels and inputs. -->
+        <!-- The action attribute within the form states where the information that is inputted will be sent one submitted by the user. The method attribute states how the data will be sent to that location, with post sending the information in a seperate data stream.  -->
         <form action="http://www.example.com/cg/register" method="POST">
-            <label for="">Title</label>
-            <input name="title" id="titleBox" type="text">
+            <!-- The label element associates the text string with the imput label listed with the same id. The imput element provide different fields to be filled by the user. The type of information entered into the field depends on the type attribute.  -->
+            <label for="titleBox">Title</label>
+            <input name="title" id="titleBox" type="text" list="titleList" />
+            <!-- The commment from above applied to the rest fo the labels and inputs listed below, the only change being the name and id. Along with that, the required attribute is added to some inputs and makes that data input required for the user to fill.  -->
+            <label for="fnBox">First Name*</label>
+            <input name="firstName" id="fnBox" type="text" required />
 
-            <label for="">First Name*</label>
-            <input name="firstName" id="fnBox" type="text">
+            <label for="lnBox">Last Name*</label>
+            <input name="lastName" id="lnBox" type="text" required />
 
-            <label for="">Last Name*</label>
-            <input name="lastName" id="lnBox" type="text">
+            <label for="addBox">Address*</label>
+            <input name="address" id="addBox" type="text" required />
 
-            <label for="">Address*</label>
-            <input type="text">
+            <label for="groupBox">Company or University</label>
+            <input name="group" id="groupBox" type="text" />
+            <!-- The email type is used to allow users to input emails into the field. -->
+            <label for="mailBox">E-Mail*</label>
+            <input name="email" id="mailBox" type="email" required />
+            <!-- The tel type is used to allow users to input telephone nubers into the field. The pattern attribute provides an certain way in which the data should be entered and validates whether the information inputted by the user complies with this way.  -->
+            <label for="phoneBox">Phone Number*</label>
+            <input name="phoneNumber" id="phoneBox" type="tel" placeholder="(nnn) nnn-nnnn" pattern="^\d{10}$|^(\(\d{3}\)\s*)?\d{3}[\s-]?\d{4}$"
+                required />
 
-            <label for="">Company or University</label>
-            <input type="text">
+            <label for="idBox">ACGIP Membership Number</label>
+            <input name="acgipID" id="idBox" type="text" placeholder="acgip-nnnnnn" pattern=" ^acgip\-\d{6}$" />
+            <!-- The data list element allows for users to pick an option from a list of options provided to them. The option element provides these option for the users and the value attribute provides the possible field values. -->
+            <datalist id="titleList">
+                <option value="Mr." />
+                <option value="Mrs." />
+                <option value="Ms." />
+                <option value="Prof." />
+                <option value="Dr." />
+                <option value="Assist. Prof." />
+                <option value="Assoc. Prof.">
+            </datalist>
 
-            <label for="">E-Mail*</label>
-            <input type="email">
-
-            <label for="">Phone Number*</label>
-            <input type="tel">
-
-            <label for="">ACGIP Membership Number</label>
-            <input type="text">
-
+            <label for="regList">Registration Category</label>
+            <!-- the select element provides the user with a list of possible values that can be entered into the field. The options work in a similar fashion as shown above, however, the options displayed to the user are placed within the two option tags while and the value that they are given is placed within the value attribute. -->
+            <select name="registerType" id="regList">
+                <option value="member">ACGIP Member ($695)</option>
+                <option value="nonmember">Non-Member ($795)</option>
+                <option value="student">Student ($310)</option>
+                <option value="poster">Poster ($95)</option>
+                <option value="guest">Guest ($35)</option>
+            </select>
+            <p>
+                <!-- The input creates a submit from which allows for users to submit the data thta they have entered.  -->
+                <input type="submit" value="Continue" />
+            </p>
         </form>
     </section>
 
@@ -103,6 +132,8 @@
     <footer>
         Association of Computer Graphics and Image Processing
     </footer>
+    <!-- End of content that will be visible to users on the page when rendered in the browser.  -->
 </body>
+<!-- End of HTML Document -->
 
 </html>
